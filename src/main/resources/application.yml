@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/timetable
+    username: root
+    password:
+    test-while-idle: true
+    validation-query: SELECT 1
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+  social:
+    google:
+      app-id:
+      app-secret:
+      app-scope: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/calendar

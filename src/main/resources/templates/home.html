@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello Google</title>
+</head>
+<body>
+<h3>Hello, <span th:text="${name}">Some User</span>!</h3>
+<table th:if="${test != null}">
+    <tr th:each="calendar : ${calendars}">
+        <td th:text="${calendar.summary}">Summary</td>
+        <td th:text="${calendar.description}">Description</td>
+    </tr>
+</table>
+<h4>Access token: <span th:text="${accessToken}">Your token</span></h4>
+</body>
+</html>
