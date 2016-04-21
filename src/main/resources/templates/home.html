@@ -11,6 +11,14 @@
         <td th:text="${calendar.description}">Description</td>
     </tr>
 </table>
+
+<table th:if="${events != null}">
+    <tr th:each="event : ${events}">
+        <td th:text="${event.summary}">Summary</td>
+        <td th:text="${event.description}">Description</td>
+    </tr>
+</table>
+
 <h4>Access token: <span th:text="${accessToken}">Your token</span></h4>
 </body>
 </html>
