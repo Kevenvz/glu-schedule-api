@@ -5,7 +5,7 @@
 </head>
 <body>
 <h3>Hello, <span th:text="${name}">Some User</span>!</h3>
-<table th:if="${test != null}">
+<table th:if="${calendars != null}">
     <tr th:each="calendar : ${calendars}">
         <td th:text="${calendar.summary}">Summary</td>
         <td th:text="${calendar.description}">Description</td>
