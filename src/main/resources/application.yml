@@ -20,3 +20,6 @@ spring:
       app-id:
       app-secret:
       app-scope: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/calendar
+
+timetable:
+  scrape-url: http://api.u510966.gluweb.nl
