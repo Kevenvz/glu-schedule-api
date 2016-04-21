@@ -36,6 +36,16 @@ public class TimetableEntry {
         this.hour = hour;
     }
 
+    public TimetableEntry(com.github.kevenvz.timetable.domain.TimetableEntry timetableEntry, Teacher teacher) {
+        this.studygroup = timetableEntry.getStudygroup();
+        this.teacher = teacher;
+        this.lesson = timetableEntry.getCourse();
+        this.room = timetableEntry.getClassroom();
+        this.weeknumber = timetableEntry.getWeeknumber();
+        this.weekday = timetableEntry.getWeekday();
+        this.hour = timetableEntry.getHour();
+    }
+
     @Override
     public String toString() {
         return "TimetableEntry{" +

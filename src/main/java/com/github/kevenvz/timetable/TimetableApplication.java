@@ -10,10 +10,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 @SpringBootApplication
@@ -32,6 +34,11 @@ public class TimetableApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
+        migrateDatabase();
+    }
+
+    @Scheduled(cron = "0 0 12 ? * SUN")
+    public void migrateDatabase() throws InterruptedException, ExecutionException {
         final Future<Map<String, Teacher>> teacherMap = migrationService.migrateTeachers();
 
         while (!(teacherMap.isDone())) {
