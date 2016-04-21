@@ -7,5 +7,6 @@ public interface CalendarOperations {
     String PRIMARY_CALENDAR_ID = "primary";
 
     CalendarList getAllCalendars();
+
     Calendar getCalendar(String calendarId);
 }

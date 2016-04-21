@@ -14,7 +14,7 @@ public class GoogleConnectionFactory extends OAuth2ConnectionFactory<Google> {
 
     @Override
     protected String extractProviderUserId(AccessGrant accessGrant) {
-        Google api = ((GoogleServiceProvider)getServiceProvider()).getApi(accessGrant.getAccessToken());
+        Google api = ((GoogleServiceProvider) getServiceProvider()).getApi(accessGrant.getAccessToken());
         UserProfile userProfile = getApiAdapter().fetchUserProfile(api);
         return userProfile.getUsername();
     }
