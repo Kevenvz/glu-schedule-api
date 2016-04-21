@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.concurrent.Future;
 
 @SpringBootApplication
 @EnableAsync
+@EnableScheduling
 public class TimetableApplication implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(TimetableApplication.class);

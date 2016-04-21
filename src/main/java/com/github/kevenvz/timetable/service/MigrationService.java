@@ -6,6 +6,7 @@ import com.github.kevenvz.timetable.repository.TeacherRepository;
 import com.github.kevenvz.timetable.repository.TimetableEntryRepository;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,6 +30,7 @@ public class MigrationService {
 
     @Transactional
     @Async
+    @Scheduled(cron = "0 0 12 ? * SUN")
     public Future<Map<String, Teacher>> migrateTeachers() throws InterruptedException {
         final List<com.github.kevenvz.timetable.domain.Teacher> teachers = scrapeService.scrapeTeachers();
         final Map<String, Teacher> teacherMap = new HashMap<String, Teacher>();
@@ -48,6 +50,7 @@ public class MigrationService {
 
     @Transactional
     @Async
+    @Scheduled(cron = "0 0 12 ? * SUN")
     public Future<List<TimetableEntry>> migrateTimetableEntries(Map<String, Teacher> teacherMap) throws InterruptedException {
         final List<com.github.kevenvz.timetable.domain.TimetableEntry> timetableEntries = scrapeService.scrapeTimetable();
         final List<TimetableEntry> timetableEntryList = new ArrayList<TimetableEntry>();
